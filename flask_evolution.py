@@ -75,6 +75,9 @@ class Migration(object):
         return path
 
     def create(self, name):
+        if not os.path.exists(self.migration_path):
+            os.makedirs(self.migration_path)
+
         slug_regex = re.compile('[^a-z0-9_]')
 
         name = name.lower().replace(' ', '_')
@@ -84,8 +87,6 @@ class Migration(object):
 
         filename = "%04d_%s.py" % (num, name)
         new_filename = os.path.join(self.migration_path, filename)
-        if not os.path.exists(self.migration_path):
-            raise Exception("The migrations folder does not exist.")
 
         with open(new_filename, "w") as f:
             f.write(MIGRATION_TEMPLATE)
