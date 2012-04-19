@@ -4,7 +4,7 @@ import os
 import re
 
 from flask import _request_ctx_stack
-from flaskext.sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 
 
@@ -209,8 +209,8 @@ class Evolution(object):
 MIGRATION_TEMPLATE = """
 import datetime
 from flask import current_app
-from flaskext.evolution import BaseMigration, IrreversibleMigration
-from flaskext.sqlalchemy import SQLAlchemy
+from flask.ext.evolution import BaseMigration, IrreversibleMigration
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 app = current_app

@@ -16,9 +16,8 @@ setup(
     author_email='fakeempire@gmail.com',
     description='Simple migrations for Flask/SQLAlchemy projects',
     long_description=__doc__,
-    packages=['flaskext'],
-    namespace_packages=['flaskext'],
-    zip_safe=False,
+    modules=['flask_evolution'],
+    zip_safe=True,
     platforms='any',
     install_requires=[
         'Flask',
