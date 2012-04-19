@@ -33,6 +33,10 @@ class AppliedMigration(db.Model):
             return 0
 
 
+class IrreversibleMigration(Exception):
+    pass
+
+
 class BaseMigration(object):
     def __init__(self):
         self._sql = []
